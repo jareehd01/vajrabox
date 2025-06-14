@@ -1,0 +1,16 @@
+{
+	"name": "Vajrabox",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "vajrabox",
+	"workspaceFolder": "/app",
+	"shutdownAction": "stopCompose",
+	"remoteUser": "root",
+	"customizations": {
+	  "vscode": {
+		"settings": {
+		  "python.pythonPath": "/usr/local/bin/python",
+		  "python.analysis.extraPaths": ["/app"]
+		}
+	  }
+	}
+  }
