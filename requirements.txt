@@ -47,3 +47,4 @@ requests
 sentry-sdk
 shapely
 ujson
+gunicorn==21.2.0
