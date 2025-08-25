@@ -1,0 +1,11 @@
+{
+	"python.pythonPath": "/usr/local/bin/python",
+	"python.analysis.extraPaths": [
+		"/app"
+	],
+	"github.copilot.chat.codeGeneration.instructions": [
+		{
+			"text": "This workspace is in a dev container running on \"Debian GNU/Linux 11 (bullseye)\".\n\nUse `\"$BROWSER\" <url>` to open a webpage in the host's default browser.\n\nSome of the command line tools available on the `PATH`: `apt`, `dpkg`, `find`, `grep`, `tar`, `gzip`"
+		}
+	]
+}

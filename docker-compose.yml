@@ -4,7 +4,10 @@ services:
       context: .
       dockerfile: .devcontainer/Dockerfile
     volumes:
-      - .:/app:cached
+      - $HOME/.ssh/:/root/.ssh/
+      - $HOME/.gitconfig:/root/.gitconfig
+      - .:/app/:cached
+      - ./.vscode-server:/root/.vscode-server
     working_dir: /app/vajrabox  # Explicit working directory
     environment:
       - PYTHONPATH=/app

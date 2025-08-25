@@ -1,0 +1,70 @@
+2025-08-25 20:11:06.933 [info] [certificates] Removed 12 expired certificates
+2025-08-25 20:11:08.464 [info] [fetcher] Using Helix fetcher, Electron fetcher is not available.
+2025-08-25 20:11:08.545 [info] [repository] Failed to run command 'git' in /app: Error: spawn git ENOENT
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:285:19)
+    at onErrorNT (node:internal/child_process:483:16)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'spawn git',
+  path: 'git',
+  spawnargs: [ '-c', 'safe.directory=*', 'config', '--list', '--null' ],
+  cmd: 'git -c safe.directory=* config --list --null'
+}
+2025-08-25 20:11:09.303 [warning] [repository] Failed to load git config from "file:///root/.config/git/config": EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, open '/root/.config/git/config'
+    at Function.e (file:///vscode/vscode-server/bin/linux-arm64/19e0f9e681ecb8e5c09d8784acaa601316ca4571/out/vs/workbench/api/node/extensionHostProcess.js:119:18064)
+    at Object.readFile (file:///vscode/vscode-server/bin/linux-arm64/19e0f9e681ecb8e5c09d8784acaa601316ca4571/out/vs/workbench/api/node/extensionHostProcess.js:119:16585)
+    at s_e.readFileString (/root/.vscode-server/extensions/github.copilot-1.350.0/extension/src/fileSystem.ts:7:41)
+    at EH.tryLoadConfig (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/configParser.ts:352:20)
+    at EH.getParsedConfig (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/configParser.ts:334:28)
+    at EH.baseConfig (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/configParser.ts:365:13)
+    at EH.getConfig (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/configParser.ts:320:33)
+    at Yq.getConfig (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/config.ts:71:28)
+    at Vq.resolveRemote (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/gitRemoteResolver.ts:8:24)
+    at t.repoUrl (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/repositoryManager.ts:148:16)
+    at tryGetRepoForFolder (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/repositoryManager.ts:138:79)
+    at t.getRepo (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/repository/repositoryManager.ts:115:26)
+    at aj.getGitRepo (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/contentExclusion/contentExclusions.ts:223:22)
+    at aj.evaluate (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/contentExclusion/contentExclusions.ts:48:30)
+    at track (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/contentExclusion/contentExclusionManager.ts:56:28)
+    at async Promise.all (index 0)
+    at vc.evaluate (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/contentExclusion/contentExclusionManager.ts:64:25) {
+  code: 'FileNotFound'
+}
+2025-08-25 20:11:09.632 [info] [fetcher] Using Helix fetcher, Electron fetcher is not available.
+2025-08-25 20:11:17.892 [warning] [relatedFiles] unknown language dockerfile
+2025-08-25 20:11:19.494 [info] [fetchCompletions] Request 968b9345-dd92-4dfb-b80f-249859feb66f at <https://proxy.business.githubcopilot.com/v1/engines/gpt-41-copilot/completions> finished with 200 status after 237.68362499999785ms
+2025-08-25 20:11:19.503 [info] [fetchCompletions] Request 0191ca38-ae2b-48dc-8ab6-daa44f0106c1 at <https://proxy.business.githubcopilot.com/v1/engines/gpt-41-copilot/completions> finished with 200 status after 751.7534169999999ms
+2025-08-25 20:11:19.560 [error] [AsyncCompletionManager] [968b9345-dd92-4dfb-b80f-249859feb66f] Request errored with AbortError: The operation was aborted
+    at EventTarget.stream.<computed>.AbortError.cause (node:internal/streams/add-abort-signal:46:22)
+    at EventTarget.[nodejs.internal.kHybridDispatch] (node:internal/event_target:831:20)
+    at EventTarget.dispatchEvent (node:internal/event_target:766:26)
+    at abortSignal (node:internal/abort_controller:370:10)
+    at AbortController.abort (node:internal/abort_controller:392:5)
+    at /root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/networking.ts:237:19
+    ... 15 lines matching cause stack trace ...
+    at /root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/ghostText/ghostText.ts:260:30 {
+  code: 'ABORT_ERR',
+  [cause]: DOMException [AbortError]: This operation was aborted
+      at new DOMException (node:internal/per_context/domexception:53:5)
+      at AbortController.abort (node:internal/abort_controller:391:18)
+      at /root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/networking.ts:237:19
+      at xse.invoke (/root/.vscode-server/extensions/github.copilot-1.350.0/node_modules/vscode-jsonrpc/lib/common/events.js:55:39)
+      at t.fire (/root/.vscode-server/extensions/github.copilot-1.350.0/node_modules/vscode-jsonrpc/lib/common/events.js:117:36)
+      at UU.cancel (/root/.vscode-server/extensions/github.copilot-1.350.0/node_modules/vscode-jsonrpc/lib/common/cancellation.js:41:31)
+      at kse.cancel (/root/.vscode-server/extensions/github.copilot-1.350.0/node_modules/vscode-jsonrpc/lib/common/cancellation.js:82:25)
+      at Wc.cancelRequest (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/ghostText/asyncCompletions.ts:257:41)
+      at Object.next (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/ghostText/asyncCompletions.ts:219:22)
+      at rj.next (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/util/subject.ts:23:22)
+      at rj.next (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/util/subject.ts:52:15)
+      at Wc.updateCompletion (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/ghostText/asyncCompletions.ts:87:25)
+      at finishedCb (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/ghostText/ghostText.ts:933:53)
+      at t.processSSEInner (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/openai/stream.ts:446:35)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at t.item [as processSSE] (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/openai/stream.ts:311:13)
+      at item (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/common/iterableHelpers.ts:5:22)
+      at asyncIterableFilter (/root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/common/iterableHelpers.ts:14:22)
+      at /root/.vscode-server/extensions/github.copilot-1.350.0/lib/src/ghostText/ghostText.ts:260:30
+}
+2025-08-25 20:11:20.105 [info] [fetchCompletions] Request 4e0b3131-adff-42b9-8c4e-37fc13952693 at <https://proxy.business.githubcopilot.com/v1/engines/gpt-41-copilot/completions> finished with 200 status after 540.6542919999993ms
+2025-08-25 20:11:20.156 [info] [streamChoices] solution 0 returned. finish reason: [stop]
