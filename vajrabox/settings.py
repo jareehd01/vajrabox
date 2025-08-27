@@ -25,10 +25,48 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vp5isa@g&+k9$90+y7afya^9t^9&w7er8spf=4g#-s4n35*2-&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# settings.py - ECS optimized
+import os
+import requests
 
-ALLOWED_HOSTS = []
+# Base allowed hosts
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
+# Add environment configured hosts
+env_hosts = os.environ.get('ALLOWED_HOSTS', '')
+if env_hosts:
+    ALLOWED_HOSTS.extend(host.strip() for host in env_hosts.split(','))
+
+# ECS-specific host detection
+try:
+    # For ECS tasks with metadata endpoint
+    metadata_uri = os.environ.get('ECS_CONTAINER_METADATA_URI_V4')
+    if metadata_uri:
+        response = requests.get(f"{metadata_uri}/task", timeout=1)
+        if response.status_code == 200:
+            task_metadata = response.json()
+            for container in task_metadata.get('Containers', []):
+                for network in container.get('Networks', []):
+                    for ip in network.get('IPv4Addresses', []):
+                        if ip and ip not in ALLOWED_HOSTS:
+                            ALLOWED_HOSTS.append(ip)
+except:
+    # If metadata isn't available, continue silently
+    pass
+
+# Add AWS-specific domains
+ALLOWED_HOSTS.extend([
+    '.amazonaws.com',
+    '.elb.amazonaws.com', 
+    '.elasticbeanstalk.com'
+])
+
+# Remove duplicates
+ALLOWED_HOSTS = list(set(ALLOWED_HOSTS))
+
+# Security settings for behind ALB
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
 
 # Application definition
 
