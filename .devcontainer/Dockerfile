@@ -3,6 +3,8 @@ FROM python:3.10-slim-bullseye
 # Install system dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    git \
+    openssh-client \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
