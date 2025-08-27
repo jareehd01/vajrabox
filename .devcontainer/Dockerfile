@@ -20,13 +20,17 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-
 # Copy all files
 COPY . .
+
+# Make the gunicorn startup script executable
+RUN chmod +x /app/start_gunicorn.sh
+
+# Expose port
+EXPOSE 8000
 
 # Set working directory to Django project
 WORKDIR /app/vajrabox
 
-# Default command
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-CMD ["gunicorn", "-c", "../gunicorn.conf.py", "vajrabox.wsgi:application"]
+# Default command - use the startup script instead of direct gunicorn
+CMD ["/app/start_gunicorn.sh"]
