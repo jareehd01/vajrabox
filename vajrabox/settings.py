@@ -123,7 +123,7 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB', 'vajrabox_db'),
         'USER': os.getenv('POSTGRES_USER', 'django_user'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'yourpassword123'),
-        'HOST': 'db',  # Docker service name
+        'HOST': os.getenv('POSTGRES_HOST', 'db'),  # Docker service name
         'PORT': 5432,
     }
 }
