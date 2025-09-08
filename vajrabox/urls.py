@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
-from django.http import JsonResponse   # ✅ import added
+from django.http import HttpResponse   # ✅ import added
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -10,10 +10,10 @@ from vajrabox_be.views import CustomTokenObtainPairView
 
 def health_check(request):
     """Simple health check endpoint for ALB"""
-    return JsonResponse({"status": "healthy", "service": "django"})
+    return HttpResponse("OK", status=200)
 
 urlpatterns = [
-    path('health/', health_check, name='health-check'),
+    path('health/', health_check, name='health_check'),
     path('vajra-admin/', admin.site.urls),
     path('api/', include('vajrabox_be.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
