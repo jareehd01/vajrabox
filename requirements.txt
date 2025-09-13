@@ -27,7 +27,7 @@ drf-yasg
 flake8
 googlemaps
 ijson
-
+django-storages[boto3]==1.14.2
 ipython==8.26.0
 mapbox
 newrelic
